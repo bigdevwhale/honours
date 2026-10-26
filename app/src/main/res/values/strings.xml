@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Small Honours</string>
+    <string name="tab_wall">Pennant</string>
+    <string name="tab_commission">Commission</string>
+    <string name="tab_book">Record</string>
+    <string name="tab_workshop">Workshop</string>
+</resources>

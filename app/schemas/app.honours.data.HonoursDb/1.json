@@ -1,0 +1,204 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "833b05a495db6e6cb6fd8aa44546a05b",
+    "entities": [
+      {
+        "tableName": "award",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `key` TEXT NOT NULL, `at` INTEGER NOT NULL, `day` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "key",
+            "columnName": "key",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "at",
+            "columnName": "at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "day",
+            "columnName": "day",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "pin",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`pennant` INTEGER NOT NULL, `key` TEXT NOT NULL, `x` REAL NOT NULL, `y` REAL NOT NULL, `at` INTEGER NOT NULL, PRIMARY KEY(`pennant`, `key`))",
+        "fields": [
+          {
+            "fieldPath": "pennant",
+            "columnName": "pennant",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "key",
+            "columnName": "key",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "x",
+            "columnName": "x",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "y",
+            "columnName": "y",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "at",
+            "columnName": "at",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "pennant",
+            "key"
+          ]
+        }
+      },
+      {
+        "tableName": "own",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `deed` TEXT NOT NULL, `decree` TEXT NOT NULL, `shape` TEXT NOT NULL, `enamel` INTEGER NOT NULL, `band` INTEGER NOT NULL, `icon` TEXT, `pixels` TEXT, `createdAt` INTEGER NOT NULL, `archived` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deed",
+            "columnName": "deed",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "decree",
+            "columnName": "decree",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "shape",
+            "columnName": "shape",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "enamel",
+            "columnName": "enamel",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "band",
+            "columnName": "band",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "icon",
+            "columnName": "icon",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "pixels",
+            "columnName": "pixels",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "archived",
+            "columnName": "archived",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "given",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `key` TEXT NOT NULL, `to` TEXT NOT NULL, `at` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "key",
+            "columnName": "key",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "to",
+            "columnName": "to",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "at",
+            "columnName": "at",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '833b05a495db6e6cb6fd8aa44546a05b')"
+    ]
+  }
+}
