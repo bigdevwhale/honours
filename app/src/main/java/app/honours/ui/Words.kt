@@ -31,6 +31,12 @@ class Words(val ru: Boolean, val gender: Gender?) {
     fun n(n: Int, one: String, few: String, many: String, en1: String, enN: String) = if (ru) "$n ${plural(n, one, few, many)}" else "$n ${if (n == 1) en1 else enN}"
 
     fun name(b: Badge) = t(b.name)
+
+    /** The title in quotes, unless it already carries its own: «Укротитель сковороды», but Медаль «Шаг вперёд». */
+    fun quoted(b: Badge): String {
+        val n = name(b)
+        return if ('«' in n || '“' in n || '"' in n) n else if (ru) "«$n»" else "“$n”"
+    }
     fun deed(b: Badge) = t(b.deed)
     fun decree(b: Badge) = t(b.decree)
 

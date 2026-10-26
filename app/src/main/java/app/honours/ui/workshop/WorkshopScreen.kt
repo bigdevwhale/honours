@@ -61,7 +61,6 @@ import app.honours.ui.components.Kind
 import app.honours.ui.components.Label
 import app.honours.ui.components.LocalToast
 import app.honours.ui.components.Sheet
-import app.honours.ui.components.ShapeIcon
 import app.honours.ui.components.TopBar
 import app.honours.ui.components.rememberLight
 import app.honours.ui.theme.C
@@ -114,7 +113,7 @@ fun WorkshopScreen(h: Home, nav: Nav) {
                 Label(w.t("Выданные листы", "Sheets given"))
                 for (g in h.s.given.reversed()) {
                     val b = h.badge(g.key) ?: continue
-                    Text("${w.date(g.at.date(h.zone))} — ${g.to}: «${w.name(b)}»", style = T.Order, modifier = Modifier.padding(vertical = 2.dp))
+                    Text("${w.date(g.at.date(h.zone))} — ${g.to}: ${w.quoted(b)}", style = T.Order, modifier = Modifier.padding(vertical = 2.dp))
                 }
             }
             Gap(24)
@@ -164,7 +163,9 @@ fun OwnEditor(h: Home, id: Long, nav: Nav) {
         }
         Label(w.t("Форма", "Shape"))
         Flow(gap = 4.dp) {
-            for (s in Shape.entries) Box(Modifier.clip(RoundedCornerShape(8.dp)).clickable { shape = s }) { ShapeIcon(s, 44.dp, s == shape) }
+            for (s in Shape.entries) Box(Modifier.clip(RoundedCornerShape(8.dp)).background(if (s == shape) C.gold.copy(alpha = .5f) else Color.Transparent).clickable { shape = s }.padding(2.dp)) {
+                Canvas(Modifier.size(44.dp)) { badge(Look(s, enamel, band, null), Metal.GOLD, Offset(size.width / 2, size.height / 2), size.minDimension * .44f, shadow = false) }
+            }
         }
         Label(w.t("Эмаль", "Enamel"))
         Swatches(enamel) { enamel = it }

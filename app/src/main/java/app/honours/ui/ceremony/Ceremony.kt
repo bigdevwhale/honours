@@ -165,7 +165,12 @@ private fun Award(h: Home, a: Awarded, index: Int, total: Int, pins: Boolean, on
         Box(Modifier.padding(top = 16.dp).fillMaxWidth()) {
             Column(Modifier.fillMaxWidth().clip(RoundedCornerShape(4.dp)).background(C.card).padding(16.dp)) {
                 Text(w.t("Наградная комиссия постановляет:", "The Awards Commission resolves:"), style = T.Small.copy(fontFamily = Mono))
-                Text(order.take(typed), style = T.Order.copy(fontSize = 15.sp, lineHeight = 22.sp), modifier = Modifier.padding(top = 6.dp))
+                // The whole order is laid out invisibly underneath, so the paper doesn't grow while it's typed.
+                Box(Modifier.padding(top = 6.dp)) {
+                    val style = T.Order.copy(fontSize = 15.sp, lineHeight = 22.sp)
+                    Text(order, style = style.copy(color = androidx.compose.ui.graphics.Color.Transparent))
+                    Text(order.take(typed), style = style)
+                }
                 // Keeps the paper its final height while the words are typed, and leaves the stamp its own corner.
                 Box(Modifier.height(104.dp))
             }

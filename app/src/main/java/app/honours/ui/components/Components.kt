@@ -52,7 +52,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import app.honours.domain.Badge
 import app.honours.domain.Metal
-import app.honours.domain.Shape
 import app.honours.ui.art.Badges.badge
 import app.honours.ui.art.Badges.blank
 import app.honours.ui.theme.C
@@ -167,12 +166,6 @@ fun BadgeIcon(b: Badge, metal: Metal?, size: Dp, modifier: Modifier = Modifier, 
         if (metal == null) blank(b.look.shape, c, r, C.paperDark, C.muted.copy(alpha = .45f))
         else badge(b.look, metal, c, r, light, shadow = true)
     }
-}
-
-/** The empty outline of a shape, for choices in the workshop. */
-@Composable
-fun ShapeIcon(s: Shape, size: Dp, on: Boolean) {
-    Canvas(Modifier.size(size)) { blank(s, Offset(this.size.width / 2, this.size.height / 2), this.size.minDimension * .42f, if (on) C.gold else C.card, if (on) C.ink else C.muted) }
 }
 
 /** Short messages at the bottom of the screen. */

@@ -101,7 +101,7 @@ fun CommissionScreen(h: Home, nav: Nav, picked: SnapshotStateList<String>) {
                 Gap(14)
                 if (todayKeys.none { it == app.honours.domain.Specials.SURVIVED }) {
                     Card(bg = C.velvet) {
-                        Text(w.t("Ничего не было? Тяжёлый день?", "Nothing happened? A hard day?"), style = T.Heading.copy(color = C.gold))
+                        Text(if (today.isEmpty()) w.t("Ничего не было? Тяжёлый день?", "Nothing happened? A hard day?") else w.t("И всё-таки тяжёлый день?", "A hard day all the same?"), style = T.Heading.copy(color = C.gold))
                         Text(w.t("Комиссия знает: иногда подвиг — просто дожить до вечера. За это полагается орден.", "The commission knows: sometimes the deed is simply getting to the evening. There's an order for that."),
                             style = T.Small.copy(color = C.card.copy(alpha = .8f)), modifier = Modifier.padding(vertical = 6.dp))
                         Btn(w.t("Орден Пережитого Дня", "Order of the Day Survived"), Modifier.fillMaxWidth(), kind = Kind.GOLD, enabled = !busy) {
@@ -147,7 +147,7 @@ fun DeedRow(h: Home, b: Badge, on: Boolean, onToggle: () -> Unit) {
         Column(Modifier.weight(1f)) {
             Text(w.deed(b), style = T.Body)
             Text(
-                if (n > 0) w.t("«${w.name(b)}» · ${w.metal(h.s.metal(b.key))} · ${w.times(n)}", "“${w.name(b)}” · ${w.metal(h.s.metal(b.key))} · ${w.times(n)}")
+                if (n > 0) "${w.quoted(b)} · ${w.metal(h.s.metal(b.key))} · ${w.times(n)}"
                 else b.dept?.let { w.t("новый знак · ${w.dept(it)}", "a new badge · ${w.dept(it)}") } ?: w.t("свой знак", "your own badge"),
                 style = T.Small,
             )

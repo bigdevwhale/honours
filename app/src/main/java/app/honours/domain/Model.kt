@@ -97,7 +97,7 @@ object Rules {
     const val PENNANT_W = 300f
     const val PENNANT_H = 440f
     /** A pinned badge's radius on the felt. */
-    const val PIN_R = 25f
+    const val PIN_R = 28f
     /** Badges on one pennant before a new one is hung. */
     const val PER_PENNANT = 16
     /** Awards of the same badge to reach class II and class I. */

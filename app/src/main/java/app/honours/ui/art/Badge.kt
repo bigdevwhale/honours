@@ -43,8 +43,8 @@ object Badges {
         Metal.GOLD -> Tone(Color(0xFFD8AB3A), Color(0xFFFFF0A8), Color(0xFF8C6418), Color(0xFF5E420C))
     }
 
-    /** Pixel drawings use digit 1 for the metal and 2–7 for these enamels. */
-    private val PIXEL = listOf(0, 5, 2, 1, 6, 4)
+    /** Pixel drawings use digit 1 for the metal and 2–7 for these enamels: red, white, sky, green, navy, black. */
+    private val PIXEL = listOf(0, 5, 2, 1, 3, 4)
     fun pixelColor(d: Int, t: Tone): Color? = when (d) { 0 -> null; 1 -> t.base; else -> ENAMEL[PIXEL[(d - 2).coerceIn(0, 5)]] }
     const val PIXEL_COLORS = 7
 

@@ -101,7 +101,7 @@ object Specials {
             Tx("{Изобретатель|Изобретательница}", "Inventor"),
             Tx("За рационализаторское предложение в области наградного дела", "For an innovative proposal in the field of award-making")),
         b(GIVER, Shape.MEDAL, 2, 5, "gift",
-            Tx("Награжден{|а} кто-то другой", "Someone else was honoured"),
+            Tx("Наградил{|а} кого-то другого", "Honoured someone else"),
             Tx("Наградной отдел", "Awards Department"),
             Tx("За то, что заметил{|а} чужой малый подвиг и не промолчал{|а}", "For noticing someone else's small deed and not keeping quiet")),
         b(GOLD, Shape.WREATH, 6, 0, "star",

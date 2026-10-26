@@ -18,7 +18,7 @@ object DemoSeed {
     /** Deeds this person does often, so their badges reach silver and gold. */
     private val HABITS = listOf("water_before_lunch", "bed_made", "called_grandma", "read_ten_pages", "lay_no_phone", "plants_watered", "evening_walk", "pan_overnight")
 
-    /** A cat's face drawn on the 9×9 grid: 1 metal, 4 white, 7 black. */
+    /** A cat's face drawn on the 9×9 grid: 1 metal, 7 black. */
     private const val CAT =
         "100000001" +
         "110000011" +
